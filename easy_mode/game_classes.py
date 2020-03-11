@@ -1,6 +1,7 @@
 import random
 
 
+
 class Person:
     def __init__(self, name, hp, mp, atk):
         self.maxhp = hp  # HP of character when it's full
@@ -59,6 +60,8 @@ class Person:
             MP/MaxMP
         """
 
+    # \t is the reserved symbol in python is used for TAB character.
+    # Means where we use it in our program its create a horizontal tab space between to strings/characters.
         print(f"\t\t {self.name.upper()}")
         print(f"\t\t\t {self.hp}/{self.maxhp}")
         print(f"\t\t\t {self.mp}/{self.maxmp}")
