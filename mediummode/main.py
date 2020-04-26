@@ -16,7 +16,7 @@ print("====================================================")
 i=0
 m=0
 player_name= input("Give the player a name :")
-magic_L = [Magic('Thunder',50,30),Magic('Fire',100,40),Magic('poison',70,35),Magic('stick',80,20)]
+magic_L = [Magic('Thunder',20,40),Magic('Fire',15,35),Magic('poison',10,30),Magic('stick',5,20)]
 player = person(player_name,200,200,15,magic_L)
 enemy = person('enemy',200,200,15,magic_L)
 player.get_status()
