@@ -23,13 +23,13 @@ class person:
             self.hp = self.hp
         return self.hp
 
-    def magic_damage(self, damage):
-        self.mp = (self.mp) - damage
-        if self.mp < 0:
-            self.mp = 0
-        else:
-            self.mp = self.mp
-        return self.mp
+    # def magic_damage(self, damage):
+    #     self.mp = (self.mp) - damage
+    #     if self.mp < 0:
+    #         self.mp = 0
+    #     else:
+    #         self.mp = self.mp
+    #     return self.mp
 
     def reduce_mp(self,cost):
         self.mp = self.mp-cost
