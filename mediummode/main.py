@@ -103,10 +103,10 @@ while playing:
                 continue
         else:
             print("chose a number from the action list above")
+            continue
     except (ValueError, IndexError, TypeError):
         print(" wrong number, give a valid number")
 
-        # playing = False
         continue
     except:
         print(" opss Something went wrong")
