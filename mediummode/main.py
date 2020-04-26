@@ -45,44 +45,69 @@ while playing:
             print(dam , " damages has been caused to the player")
             print("")
         elif player_action == 2:
-            player.choose_magic()
-            magic_choice = int(input("chose a magic:"))
-            if magic_choice==1:
-                m= magic_L[0].magenerate()
-                tak_damage = enemy.magic_damage(m)
-                print( m, " damages has been caused to the enemy maxmp")
-                mpp=player.reduce_mp(magic_L[0].mp_cost)
-                print(magic_L[0].mp_cost, " damages has been caused to the player mp")
-            elif magic_choice==2:
-                m= magic_L[1].magenerate()
-                tak_damage = enemy.magic_damage(m)
-                print( m , " damages has been caused to the enemy maxmp")
-                mpp=player.reduce_mp(magic_L[1].mp_cost)
-                print(magic_L[1].mp_cost, " damages has been caused to the player mp")
-            elif magic_choice==3:
-                m= magic_L[2].magenerate()
-                tak_damage = enemy.magic_damage(m)
-                print(m, " damages has been caused to the enemy mp")
-                mpp=player.reduce_mp(magic_L[2].mp_cost)
-                print(magic_L[2].mp_cost, " cost has been caused to the player mp")
-            elif magic_choice==4:
-                m= magic_L[3].magenerate()
-                tak_damage = enemy.magic_damage(m)
-                print( m , " damages has been caused to the enemy mp")
-                mpp=player.reduce_mp(magic_L[3].mp_cost)
-                print(magic_L[3].mp_cost, " cost has been caused to the player mp")
-            else:
-                print(" give a number from 1 to 4")
-            dam = enemy.generate_damage()
-            tak_dam = player.take_damage(dam)
-            print(dam, " damages has been caused to the player")
-            print("")
+            while(player.mp>0):
+                player.choose_magic()
+                magic_choice = int(input("chose a magic:"))
+                if magic_choice==1:
+                    m= magic_L[0].magenerate()
+                    tak_damage = enemy.take_damage(m)
+                    print( m, " damages has been caused to the enemy hp")
+                    mpp=player.reduce_mp(magic_L[0].mp_cost)
+                    print(magic_L[0].mp_cost, " cost has been occured to the player mp")
+                    print("****** NOW IT\'S  THE ENEMY'S TURN ******")
+                    print("")
+                    dam = enemy.generate_damage()
+                    tak_dam = player.take_damage(dam)
+                    print(dam, " damages has been caused to the player")
+                    print("")
+                elif magic_choice==2:
+                    m= magic_L[1].magenerate()
+                    tak_damage = enemy.take_damage(m)
+                    print( m , " damages has been caused to the enemy hp")
+                    mpp=player.reduce_mp(magic_L[1].mp_cost)
+                    print(magic_L[1].mp_cost, " cost has been occured to the player mp")
+                    print("****** NOW IT\'S  THE ENEMY'S TURN ******")
+                    print("")
+                    dam = enemy.generate_damage()
+                    tak_dam = player.take_damage(dam)
+                    print(dam, " damages has been caused to the player")
+                    print("")
+                elif magic_choice==3:
+                    m= magic_L[2].magenerate()
+                    tak_damage = enemy.take_damage(m)
+                    print(m, " damages has been caused to the enemy hp")
+                    mpp=player.reduce_mp(magic_L[2].mp_cost)
+                    print(magic_L[2].mp_cost, " cost has been occured to the player mp")
+                    print("****** NOW IT\'S  THE ENEMY'S TURN ******")
+                    print("")
+                    dam = enemy.generate_damage()
+                    tak_dam = player.take_damage(dam)
+                    print(dam, " damages has been caused to the player")
+                    print("")
+                elif magic_choice==4:
+                    m= magic_L[3].magenerate()
+                    tak_damage = enemy.take_damage(m)
+                    print( m , " damages has been caused to the enemy hp")
+                    mpp=player.reduce_mp(magic_L[3].mp_cost)
+                    print(magic_L[3].mp_cost, " cost has been occured to the player mp")
+                    print("****** NOW IT\'S  THE ENEMY'S TURN ******")
+                    print("")
+                    dam = enemy.generate_damage()
+                    tak_dam = player.take_damage(dam)
+                    print(dam, " damages has been caused to the player")
+                    print("")
+                else:
+                    print(" give a number from 1 to 4")
+            if player.mp == 0:
+                print("you have no magic point,u can't use magic")
+                continue
         else:
             print("chose a number from the action list above")
-    except ValueError:
-        print(" wrong number,start the game again")
-        playing = False
+    except (ValueError, IndexError, TypeError):
+        print(" wrong number, give a valid number")
 
+        # playing = False
+        continue
     except:
         print(" opss Something went wrong")
         playing = False
