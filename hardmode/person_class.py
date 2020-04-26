@@ -1,7 +1,7 @@
 import random
 
 class person:
-    def __init__(self, name, hp, mp, attack,magic):
+    def __init__(self, name, hp, mp, attack, magic, heal):
         self.name = name
         self.maxhp = hp
         self.hp = hp
@@ -10,6 +10,7 @@ class person:
         self.magic = magic
         self.attack = attack
         self.action = ["Attack","Magic"]
+        self.heal = heal
     def generate_damage(self):
         attack_h = self.attack + 10
         attack_l = self.attack - 10
@@ -22,6 +23,16 @@ class person:
         else:
             self.hp = self.hp
         return self.hp
+    def generate_heal(self,damage):
+        self.hp = (self.hp) + damage
+        if self.hp < 0:
+            self.hp = 0
+        elif 0 < self.hp < self.maxmp :
+            self.hp = self.hp
+        elif self.hp > self.maxmp :
+            self.hp = self.maxmp
+        return self.hp
+
 
     def reduce_mp(self,cost):
         self.mp = self.mp-cost
@@ -39,10 +50,11 @@ class person:
             print("\t",number,end=(':'))
             print(item)
             number=number + 1
+
     # Create new method to choose what magic to use
     def choose_magic(self):
         number = 1
-        print("\t Magic: ")
+        print("\t Light Magic: ")
         for magic in self.magic:
             print("\t", number, end=(':'))
             print(magic.name, ", cost : ",magic.mp_cost)
