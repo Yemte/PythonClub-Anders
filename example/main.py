@@ -2,9 +2,9 @@
 #   IMPORT MODULES
 # ===========================
 
-from classes.game import Person, Bcolors, Game
-from classes.magic import Spell
-from classes.inventory import Item
+from example.classes.game import Person, Bcolors, Game
+from example.classes.magic import Spell
+from example.classes.inventory import Item
 import random
 import time
 

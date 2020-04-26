@@ -17,6 +17,26 @@ class person:
         self.attack_h = attack + 10
         self.attack_l = attack -10
         self.action = ["Attack"]
+
+
+    def generate_damage(self):
+        damage = random.randrange(self.attack_l,self.attack_h)
+        return damage
+    def take_damage(self,damage):
+        self.hp = (self.hp)-damage
+        if self.hp < 0:
+            self.hp = 0
+        else:
+            self.hp = self.hp
+        return self.hp
+    def choose_action(self):
+        number = 1
+        for item in self.action:
+            print(self.name.upper(),":")
+            print("\t ACTION: ")
+            print("\t",number,end=(':'))
+            print(item)
+            number=number + 1
     def get_status(self):
         """
                 This method will print out the current stats of all player and enemy
@@ -26,22 +46,3 @@ class person:
         print("\t\t", self.name.upper(), end=(':'))
         print(self.hp,"/",self.maxhp)
         print("\t\t\t ", self.mp,"/",self.maxmp)
-
-    def generate_damage(self):
-        damage = random.randrange(self.attack_l,self.attack_h)
-        return damage
-    def take_damage(self,damage):
-        self.hp = self.hp-damage
-        if self.hp >= 0:
-            return self.hp
-        else:
-            return 0
-    def choose_action(self):
-        number = 1
-        for item in self.action:
-            print(self.name.upper(),":")
-            print("\t ACTION: ")
-            print("\t",number,end=(':'))
-            print(item)
-            number=number + 1
-
